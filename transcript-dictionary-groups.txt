@@ -1,0 +1,76 @@
+#makcene pri makkej samohlaske su makcene
+dˇ ď
+tˇ ť
+lˇ ľ
+nˇ ň
+Dˇ Ď
+Tˇ Ť
+Lˇ Ľ
+Nˇ Ň
+#vsetky ostatne vyskyty makcenov sa nepovazuju za makcen
+ˇ 
+#ak predchadza IA samohlaska tak sa medzi nich dostane J (plati aj pre OIU)
+aqj aj
+áqj áj
+eqj ej
+éqj éj
+iqj ij
+íqj íj
+oqj oj
+óqj ój
+uqj uj
+úqj új
+^qj j / slova zacinajuce na samohlasku IA zacinaju J
+^qJ J / slova zacinajuce na samohlasku IA zacinaju J
+#ak IA makka spoluhlaska, tak dostane makcen namiesto J       - to je dovod preco sa musi pouzit nejaky pomocny znak pre IA
+nqj ň
+dqj ď
+tqj ť
+lqj ľ
+#vyskyty IA vo vnutri slova sa povazuju za JA
+qja ja
+qjá já
+# E na zaciatku slova je Je
+^e je
+^é jé
+^E Je
+^É Jé
+#j medzi samohlaskami
+áe áje
+aé ajé
+ae aje
+ói óji kontrapr. tezojimenítomu, projíznosit, projízšédšaho
+oí ojí
+oi oji
+oe oje
+óe óje
+oé ojé
+ée éje
+ee eje
+eé ejé
+ei eji kontrapr. neizrečénnych
+eí ejí
+éi éji
+ia ija
+iá ijá
+ía íja
+íe íje
+ie ije
+ié ijé
+ii iji
+ií ijí
+íi íji
+yi yji
+yí yjí
+ýi ýji
+ue uje
+úe úje
+ué ujé
+uí ují
+úi úji
+ui uji
+aí ají
+#vyskyty ostatnych samohlasok sa nepovazuju za JA v slove
+qj /
+jj j /hotfix
+neotémlemo neotjémlemo
