@@ -1,11 +1,15 @@
 const puppeteer = require("puppeteer");
 const fs = require("fs");
 
+const Transliterator = require('./Transliterator');
+
 class TroparDownloadingManager {
     #writableStream;
+    #transliterator;
 
     constructor(filename) {
         this.#writableStream = fs.createWriteStream(filename);
+        this.#transliterator = new Transliterator();
     }
 
     async run(months, year) {
@@ -31,9 +35,9 @@ class TroparDownloadingManager {
                     let convertedKondak = await this.convertToOldRussian(item.kondakText);
 
                     // Update the result with converted texts
-                    item.blockTitle = convertedBlockTitle;
-                    item.troparText = convertedTropar;
-                    item.kondakText = convertedKondak;
+                    item.blockTitle = this.#transliterator.transliterateAzbukaToLatin(convertedBlockTitle);
+                    item.troparText = this.#transliterator.transliterateAzbukaToLatin(convertedTropar);
+                    item.kondakText = this.#transliterator.transliterateAzbukaToLatin(convertedKondak);
                 }
 
                 this.writeToCsv(date, result);
@@ -125,7 +129,9 @@ class TroparDownloadingManager {
         });
 
         await browser.close();
-        return result;
+
+        // remove свѣтъ from the end
+        return result.slice(0, -('свѣтъ').length);
     }
 
     writeToCsv(date, data) {
@@ -155,8 +161,8 @@ class TroparDownloadingManager {
     }
 }
 
-const manager = new TroparDownloadingManager("troparsAndCondacs-SeptemberI.csv");
+const manager = new TroparDownloadingManager("troparsAndCondacs-January.csv");
 (async () => {
-    await manager.run([8], 2024); // 8 is September
+    await manager.run([0], 2024); // 8 is September
 })();
 
