@@ -72,6 +72,23 @@ class Transliterator {
             .replace(/Дю/g, 'Ďu').replace(/дю/g, 'ďu')
             .replace(/Тю/g, 'Ťu').replace(/тю/g, 'ťu');
 
+        // Accented vowels mapping
+        text = text
+            .replace(/а\u0301/g, 'á').replace(/А\u0301/g, 'Á')
+            .replace(/е\u0301/g, 'é').replace(/Е\u0301/g, 'É')
+            .replace(/и\u0301/g, 'í').replace(/И\u0301/g, 'Í')
+            .replace(/о\u0301/g, 'ó').replace(/О\u0301/g, 'Ó')
+            .replace(/у\u0301/g, 'ú').replace(/У\u0301/g, 'Ú')
+            .replace(/ы\u0301/g, 'ý').replace(/Ы\u0301/g, 'Ý')
+            .replace(/ѣ́\u0301/g, 'í').replace(/Ѣ́\u0301/g, 'Í')
+            .replace(/ѧ́\u0301/g, 'én').replace(/Ѧ́\u0301/g, 'Én')
+            .replace(/ѫ́\u0301/g, 'ǫ́').replace(/Ѫ́\u0301/g, 'Ǒn')
+            .replace(/я́\u0301/g, 'já').replace(/Я́\u0301/g, 'Já')
+            .replace(/ю́\u0301/g, 'jú').replace(/Ю́\u0301/g, 'Jú');
+
+        // text = text
+        //     .replace(/\u044a/g, '').replace(/\u0020\u0020/g, '\u0020');
+
         // Replace "Е"/"е" at the beginning of each word
         text = text.replace(/(^|\s|[.,;!?()"'«»])Е/g, '$1Je').replace(/(^|\s|[.,;!?()"'«»])е/g, '$1je');
         

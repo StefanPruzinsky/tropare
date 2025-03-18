@@ -24,7 +24,11 @@ class TroparDownloadingManager {
 
             for (let day = 1; day <= numberOfDays; day++) {
                 let date = new Date(year, month, day);
-                await page.goto(`https://azbyka.ru/days/${date.toLocaleDateString('en-CA')}`); // YYYY-MM-DD
+
+                let dateInJulian = new Date(date); // Clone the original date
+                dateInJulian.setDate(date.getDate() + 13);
+                
+                await page.goto(`https://azbyka.ru/days/${dateInJulian.toLocaleDateString('en-CA')}`); // YYYY-MM-DD
 
                 let result = await this.downloadRawTropars(page);
 
@@ -161,8 +165,8 @@ class TroparDownloadingManager {
     }
 }
 
-const manager = new TroparDownloadingManager("troparsAndCondacs-January.csv");
+const manager = new TroparDownloadingManager("troparsAndCondacs-MayFinalJulian2.csv");
 (async () => {
-    await manager.run([0], 2024); // 8 is September
+    await manager.run([4], 2025); // 8 is September
 })();
 
